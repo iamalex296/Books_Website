@@ -1,0 +1,41 @@
+.template-outside-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #27292d;
+  width: 100%;
+}
+
+.template-inner-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 75%;
+  background-color: #27292d;
+  padding: 10px;
+}
+
+@media (max-width: 1700px) and (min-width: 1530px) {
+  .template-container {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1530px) and (min-width: 1280px) {
+  .template-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1280px) and (min-width: 1024px) {
+  .template-container {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .template-container {
+    width: 95%;
+  }
+}
