@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import React from "react";
 
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import Button from "../../UI/Button/Button";
@@ -12,9 +13,8 @@ const StyledHeader = styled.header`
   align-items: center;
   top: 0;
   left: 0;
-  border-bottom: 1px solid #515151;
+  border-bottom: 1px solid #b4b4b4;
   width: 100%;
-  padding: 5px 0;
   background: #27292d;
   z-index: 100;
 `;
@@ -33,7 +33,7 @@ const StyledNavItemsLink = styled.li`
   margin-right: 30px;
   font-size: 12px;
   cursor: pointer;
-  color: #ffffff;
+  color: ${(props) => (props.toggleDarkMode ? "#ffffff" : "#707070")};
   transition-duration: 0.3s;
 
   :hover,
@@ -57,37 +57,52 @@ const StyledLink = styled(Link)`
   font-size: 12px;
   cursor: pointer;
   text-decoration: none;
-  color: #ffffff;
+  color: ${(props) => (props.toggleDarkMode ? "#ffffff" : "#707070")};
 `;
 
-const Header = () => {
+const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
   return (
     <StyledHeader>
-      <Template>
+      <Template toggleDarkMode={toggleDarkMode}>
         <StyledNavItems>
-          <StyledLink to="/">
-            <StyledNavItemsLink>Events</StyledNavItemsLink>
+          <StyledLink toggleDarkMode={toggleDarkMode} to="/">
+            <StyledNavItemsLink toggleDarkMode={toggleDarkMode}>
+              Events
+            </StyledNavItemsLink>
           </StyledLink>
           <StyledLink to="/">
-            <StyledNavItemsLink to="/">Blog</StyledNavItemsLink>
+            <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
+              Blog
+            </StyledNavItemsLink>
           </StyledLink>
-          <StyledNavItemsLink to="/">Gift Card</StyledNavItemsLink>
-          <StyledNavItemsLink to="/">Orphan's Book club</StyledNavItemsLink>
-          <StyledNavItemsLink to="/">
+          <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
+            Gift Card
+          </StyledNavItemsLink>
+          <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
+            Orphan's Book club
+          </StyledNavItemsLink>
+          <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
             <Button size="small">QUIZ</Button>
           </StyledNavItemsLink>
         </StyledNavItems>
 
         <StyledLoginMenu>
-          <SwitchToggler />
+          <SwitchToggler
+            toggleDarkMode={toggleDarkMode}
+            setToggleDarkMode={setToggleDarkMode}
+          />
+
           <Button
             variant="outlined"
             color="secondary"
             size="large"
             style={{ marginRight: "10px" }}
           >
-            <StyledLink to="/login">Log In</StyledLink>
+            <StyledLink toggleDarkMode={toggleDarkMode} to="/login">
+              Log In
+            </StyledLink>
           </Button>
+
           <Button>
             <StyledRegisterLink to="/register">Register</StyledRegisterLink>
           </Button>

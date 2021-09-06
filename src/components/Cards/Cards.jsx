@@ -7,7 +7,7 @@ import Template from "../../UI/Template/Template";
 import styled from "styled-components";
 
 const StyledHeader = styled.h2`
-  color: #ffffff;
+  color: ${(props) => (props.toggleDarkMode ? "#ffffff" : "#707070")};
   margin: 10px 0px;
   text-align: left;
 `;
@@ -18,7 +18,7 @@ const StyledHr = styled.hr`
   margin-bottom: 20px;
   width: 100%;
   height: 1px;
-  background-color: #ffffff;
+  background-color: #707070;
   border: 0;
 
   :after {
@@ -29,14 +29,18 @@ const StyledHr = styled.hr`
   }
 `;
 
-const Cards = ({ name }) => {
+const Cards = ({ name, toggleDarkMode }) => {
   return (
-    <Template>
+    <Template toggleDarkMode={toggleDarkMode}>
       <span>
-        <StyledHeader>{name}</StyledHeader>
+        <StyledHeader toggleDarkMode={toggleDarkMode}>{name}</StyledHeader>
         <StyledHr />
       </span>
-      <CarouselSlider itemsToShow={4} itemsToScroll={4}>
+      <CarouselSlider
+        toggleDarkMode={toggleDarkMode}
+        itemsToShow={4}
+        itemsToScroll={4}
+      >
         <SingleCard number="1" />
         <SingleCard number="2" />
         <SingleCard number="3" />

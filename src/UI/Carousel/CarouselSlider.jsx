@@ -10,6 +10,7 @@ const CarouselSlider = ({
   itemsToScroll,
   backgroundColor,
   autoPlay,
+  toggleDarkMode,
 }) => {
   const breakPoints = [
     { width: 500, itemsShow: 1 },
@@ -24,7 +25,13 @@ const CarouselSlider = ({
         height: `${height || "350px"}`,
         padding: "20px",
         boxSizing: "border-box",
-        backgroundColor: `${backgroundColor || "#27292D"}`,
+        backgroundColor: `${
+          !toggleDarkMode && backgroundColor
+            ? "#ffffff"
+            : toggleDarkMode
+            ? "#27292D"
+            : "#ffffff"
+        }`,
       }}
       breakPoints={breakPoints}
       itemsToShow={itemsToShow || 1}
@@ -34,7 +41,7 @@ const CarouselSlider = ({
       transitionMs={1500}
       dots={null}
       // enableTilt={false}
-      // itemPadding={[10, 50]}
+      // itemPadding={[30, 50]}
       itemsToScroll={itemsToScroll || 1}
       // showArrows={false}
     >
