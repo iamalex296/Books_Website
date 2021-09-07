@@ -2,21 +2,11 @@ import React from "react";
 
 import classes from "./Template.module.css";
 
-const Template = ({ children, className, inlineStyles, toggleDarkMode }) => {
+const Template = ({ children, className, inlineStyles }) => {
   return (
-    <div
-      className={`${
-        toggleDarkMode
-          ? classes["template-dark-outside-container"]
-          : classes["template-light-outside-container"]
-      } ${className}`}
-    >
+    <div className={`${classes["template-outside-container"]} ${className}`}>
       <div
-        className={`${
-          toggleDarkMode
-            ? classes["template-dark-inner-container"]
-            : classes["template-light-inner-container"]
-        } ${className}`}
+        className={`${classes["template-inner-container"]} ${className}`}
         style={inlineStyles}
       >
         {children}

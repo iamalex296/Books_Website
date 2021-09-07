@@ -15,7 +15,6 @@ const StyledHeader = styled.header`
   left: 0;
   border-bottom: 1px solid #b4b4b4;
   width: 100%;
-  background: #27292d;
   z-index: 100;
 `;
 
@@ -28,12 +27,12 @@ const StyledNavItems = styled.ul`
 
 const StyledNavItemsLink = styled.li`
   text-transform: uppercase;
+  text-decoration: none;
   list-style: none;
   padding: 0px;
   margin-right: 30px;
   font-size: 12px;
   cursor: pointer;
-  color: ${(props) => (props.toggleDarkMode ? "#ffffff" : "#707070")};
   transition-duration: 0.3s;
 
   :hover,
@@ -42,14 +41,18 @@ const StyledNavItemsLink = styled.li`
   }
 `;
 
+const StyledRegisterLink = styled.a`
+  text-transform: uppercase;
+  text-decoration: none;
+  list-style: none;
+  padding: 0px;
+  font-size: 12px;
+  cursor: pointer;
+`;
+
 const StyledLoginMenu = styled.div`
   display: flex;
   align-items: center;
-`;
-
-const StyledRegisterLink = styled(Link)`
-  text-decoration: none;
-  color: #fff;
 `;
 
 const StyledLink = styled(Link)`
@@ -57,31 +60,23 @@ const StyledLink = styled(Link)`
   font-size: 12px;
   cursor: pointer;
   text-decoration: none;
-  color: ${(props) => (props.toggleDarkMode ? "#ffffff" : "#707070")};
+  color: white;
 `;
 
 const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
   return (
     <StyledHeader>
-      <Template toggleDarkMode={toggleDarkMode}>
+      <Template>
         <StyledNavItems>
-          <StyledLink toggleDarkMode={toggleDarkMode} to="/">
-            <StyledNavItemsLink toggleDarkMode={toggleDarkMode}>
-              Events
-            </StyledNavItemsLink>
+          <StyledLink to="/">
+            <StyledNavItemsLink>Events</StyledNavItemsLink>
           </StyledLink>
           <StyledLink to="/">
-            <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
-              Blog
-            </StyledNavItemsLink>
+            <StyledNavItemsLink to="/">Blog</StyledNavItemsLink>
           </StyledLink>
-          <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
-            Gift Card
-          </StyledNavItemsLink>
-          <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
-            Orphan's Book club
-          </StyledNavItemsLink>
-          <StyledNavItemsLink toggleDarkMode={toggleDarkMode} to="/">
+          <StyledNavItemsLink to="/">Gift Card</StyledNavItemsLink>
+          <StyledNavItemsLink to="/">Orphan's Book club</StyledNavItemsLink>
+          <StyledNavItemsLink to="/">
             <Button size="small">QUIZ</Button>
           </StyledNavItemsLink>
         </StyledNavItems>
@@ -98,14 +93,12 @@ const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
             size="large"
             style={{ marginRight: "10px" }}
           >
-            <StyledLink toggleDarkMode={toggleDarkMode} to="/login">
-              Log In
-            </StyledLink>
+            <StyledLink to="/login">Log In</StyledLink>
           </Button>
 
-          <Button>
-            <StyledRegisterLink to="/register">Register</StyledRegisterLink>
-          </Button>
+          <StyledRegisterLink to="/register">
+            <Button>Register</Button>
+          </StyledRegisterLink>
         </StyledLoginMenu>
       </Template>
     </StyledHeader>

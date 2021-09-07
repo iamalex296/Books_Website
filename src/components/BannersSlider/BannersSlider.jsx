@@ -2,13 +2,9 @@ import React from "react";
 
 import CarouselSlider from "../../UI/Carousel/CarouselSlider";
 
-const BannersSlider = (toggleDarkMode) => {
+const BannersSlider = () => {
   return (
-    <CarouselSlider
-      backgroundColor="#161617"
-      autoPlay={true}
-      toggleDarkMode={toggleDarkMode}
-    >
+    <CarouselSlider autoPlay={true}>
       <img
         src="https://www.bookshop.ge/content/uploads/slider/slider_60f566c675464.jpg"
         alt="img"

@@ -1,79 +1,43 @@
-.template-dark-outside-container {
+.template-outside-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #27292d;
-  color: #ffffff;
+  /* background-color: #27292d;
+  color: #ffffff; */
   width: 100%;
 }
 
-.template-light-outside-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  color: #27292d;
-  width: 100%;
-}
-
-.template-dark-inner-container {
+.template-inner-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   width: 75%;
-  background-color: #27292d;
-  color: #ffffff !important;
-  padding: 10px;
-}
-
-.template-light-inner-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 75%;
-  background-color: #ffffff;
-  color: #27292d !important;
+  /* background-color: #27292d;
+  color: #ffffff !important; */
   padding: 10px;
 }
 
 @media (max-width: 1700px) and (min-width: 1530px) {
-  .template-dark-inner-container {
-    width: 75%;
-  }
-
-  .template-light-inner-container {
+  .template-inner-container {
     width: 75%;
   }
 }
 
 @media (max-width: 1530px) and (min-width: 1280px) {
-  .template-dark-inner-container {
-    width: 80%;
-  }
-
-  .template-light-inner-container {
+  .template-inner-container {
     width: 80%;
   }
 }
 
 @media (max-width: 1280px) and (min-width: 1024px) {
-  .template-dark-inner-container {
-    width: 85%;
-  }
-
-  .template-light-inner-container {
+  .template-inner-container {
     width: 85%;
   }
 }
 
 @media (max-width: 1024px) {
-  .template-dark-inner-container {
-    width: 100%;
-  }
-
-  .template-light-inner-container {
+  .template-inner-container {
     width: 100%;
   }
 }

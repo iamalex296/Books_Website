@@ -1,5 +1,35 @@
-.App {
-  text-align: center;
+.LightMode {
+  background-color: #ffffff;
+  color: #27292d;
+}
+
+.LightMode a,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: #27292d;
+}
+
+.DarkMode {
+  background-color: #27292d;
+  color: #ffffff;
+}
+
+.DarkMode li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: #ffffff;
 }
 
 * {
