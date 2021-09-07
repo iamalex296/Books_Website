@@ -13,7 +13,7 @@ const StyledHeader = styled.header`
   align-items: center;
   top: 0;
   left: 0;
-  border-bottom: 1px solid #b4b4b4;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.3);
   width: 100%;
   z-index: 100;
 `;
@@ -60,7 +60,7 @@ const StyledLink = styled(Link)`
   font-size: 12px;
   cursor: pointer;
   text-decoration: none;
-  color: white;
+  color: #dfdfdf;
 `;
 
 const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
