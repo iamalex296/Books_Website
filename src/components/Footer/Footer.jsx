@@ -5,9 +5,10 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import SendRoundedIcon from "@material-ui/icons/SendRounded";
 
 import Template from "../../UI/Template/Template";
-import Input from "../../UI/Input/Input";
+import InputWithButton from "../../UI/Input/InputWithButton";
 
 const StyledFooter = styled.div`
   display: flex;
@@ -24,7 +25,7 @@ const StyledLi = styled.li`
   justify-content: flex-start;
   align-items: flex-start;
   list-style: none;
-  margin-top: 10px;
+  margin: 10px 0px;
   cursor: pointer;
   opacity: 0.6;
   font-size: 14px;
@@ -74,7 +75,12 @@ const Footer = () => {
 
         <ul>
           <StyledLi>Subscribe</StyledLi>
-          <Input />
+          <InputWithButton
+            icon={<SendRoundedIcon />}
+            buttonName="Send"
+            placeholder="Email Adress"
+            width={250}
+          />
         </ul>
       </Template>
     </StyledFooter>

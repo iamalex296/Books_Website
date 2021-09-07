@@ -55,11 +55,16 @@ const InputWithButton = ({
   icon,
   ariaLabel,
   type,
+  width,
 }) => {
   const classes = useStyles();
 
   return (
-    <Paper component="form" className={classes.root}>
+    <Paper
+      style={{ width: width || 500 }}
+      component="form"
+      className={classes.root}
+    >
       <InputBase
         className={classes.input}
         placeholder={placeholder || "enter something"}
