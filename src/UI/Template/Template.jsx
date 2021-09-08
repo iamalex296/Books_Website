@@ -6,8 +6,9 @@ const StyledTemplateOutsideContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background-color: #27292d;
-  color: #ffffff; */
+  background-color: ${(props) =>
+    props.background ? props.background : "transparent"};
+  padding: 15px 0px;
   width: 100%;
 `;
 const StyledTemplateInnerContainer = styled.div`
@@ -16,8 +17,6 @@ const StyledTemplateInnerContainer = styled.div`
   align-items: ${(props) => (props.alignItems ? props.alignItems : "center")};
   flex-wrap: wrap;
   width: 75%;
-  /* background-color: #27292d;
-  color: #ffffff !important; */
   padding: 10px;
 
   @media (max-width: 1700px) and (min-width: 1530px) {
@@ -37,10 +36,11 @@ const StyledTemplateInnerContainer = styled.div`
   }
 `;
 
-const Template = ({ children, inlineStyles, alignItems }) => {
+const Template = ({ children, inlineStyles, alignItems, background }) => {
   return (
-    <StyledTemplateOutsideContainer>
+    <StyledTemplateOutsideContainer background={background}>
       <StyledTemplateInnerContainer
+        background={background}
         style={inlineStyles}
         alignItems={alignItems}
       >

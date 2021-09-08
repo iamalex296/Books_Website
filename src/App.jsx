@@ -3,6 +3,7 @@ import "./App.css";
 
 import Header from "./components/Header/Header";
 import SearchSection from "./components/SearchSection/SearchSection";
+import CategoriesList from "./components/CategoriesList/CategoriesList";
 import Homepage from "./pages/Homepage/Homepage";
 import Footer from "./components/Footer/Footer";
 
@@ -16,6 +17,7 @@ const App = () => {
         setToggleDarkMode={setToggleDarkMode}
       />
       <SearchSection />
+      <CategoriesList toggleDarkMode={toggleDarkMode} />
       <Homepage />
       <Footer />
     </div>

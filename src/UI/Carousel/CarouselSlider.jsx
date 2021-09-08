@@ -21,7 +21,7 @@ const CarouselSlider = ({
     <Carousel
       style={{
         height: `${height || "350px"}`,
-        padding: "20px",
+        padding: "0px 10px 40px 10px",
         boxSizing: "border-box",
       }}
       breakPoints={breakPoints}

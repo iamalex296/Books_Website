@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Button from "../../UI/Button/Button";
 import Template from "../../UI/Template/Template";
 import SwitchToggler from "../../UI/SwitchToggler/SwitchToggler";
+import { StyledListLink } from "../../UI/Links/StyledLinks";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -25,23 +26,7 @@ const StyledNavItems = styled.ul`
   padding: 0px;
 `;
 
-const StyledNavItemsLink = styled.li`
-  text-transform: uppercase;
-  text-decoration: none;
-  list-style: none;
-  padding: 0px;
-  margin-right: 30px;
-  font-size: 12px;
-  cursor: pointer;
-  transition-duration: 0.3s;
-
-  :hover,
-  :active {
-    color: #2e99fb;
-  }
-`;
-
-const StyledRegisterLink = styled.a`
+const StyledRegisterLink = styled(Link)`
   text-transform: uppercase;
   text-decoration: none;
   list-style: none;
@@ -69,16 +54,16 @@ const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
       <Template>
         <StyledNavItems>
           <StyledLink to="/">
-            <StyledNavItemsLink>Events</StyledNavItemsLink>
+            <StyledListLink>Events</StyledListLink>
           </StyledLink>
           <StyledLink to="/">
-            <StyledNavItemsLink to="/">Blog</StyledNavItemsLink>
+            <StyledListLink to="/">Blog</StyledListLink>
           </StyledLink>
-          <StyledNavItemsLink to="/">Gift Card</StyledNavItemsLink>
-          <StyledNavItemsLink to="/">Orphan's Book club</StyledNavItemsLink>
-          <StyledNavItemsLink to="/">
+          <StyledListLink to="/">Gift Card</StyledListLink>
+          <StyledListLink to="/">Orphan's Book club</StyledListLink>
+          <StyledListLink to="/">
             <Button size="small">QUIZ</Button>
-          </StyledNavItemsLink>
+          </StyledListLink>
         </StyledNavItems>
 
         <StyledLoginMenu>
