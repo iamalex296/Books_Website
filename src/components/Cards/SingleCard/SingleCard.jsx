@@ -17,7 +17,7 @@ const SingleCard = ({ title, description, author, price, image, category }) => {
         <p className={classes["description-text"]}>
           <span>Description:</span> {description}
         </p>
-        <p className={classes["book-categories"]}>
+        <p>
           <span>Category:</span>
           {category}
         </p>
