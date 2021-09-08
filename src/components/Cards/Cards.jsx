@@ -1,8 +1,11 @@
 import React from "react";
 
-import SingleCard from "./SingleCard";
+import SingleCard from "./SingleCard/SingleCard";
 import CarouselSlider from "../../UI/Carousel/CarouselSlider";
 import Template from "../../UI/Template/Template";
+
+import Book1984 from "../../assets/z13bnbq2dwg51.png";
+import CrimeAndPunishment from "../../assets/crime_and_punishment_raskolnikov_maria_ivanova_mariaivart.jpg";
 
 import styled from "styled-components";
 
@@ -24,7 +27,7 @@ const StyledHr = styled.hr`
   :after {
     content: "";
     display: block;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid #cb0e4e;
     max-width: 40%;
   }
 `;
@@ -37,22 +40,71 @@ const Cards = ({ name }) => {
         <StyledHr />
       </span>
       <CarouselSlider itemsToShow={4} itemsToScroll={4}>
-        <SingleCard number="1" />
-        <SingleCard number="2" />
-        <SingleCard number="3" />
-        <SingleCard number="4" />
-        <SingleCard number="5" />
-        <SingleCard number="6" />
-        <SingleCard number="7" />
-        <SingleCard number="8" />
-        <SingleCard number="1" />
-        <SingleCard number="2" />
-        <SingleCard number="3" />
-        <SingleCard number="4" />
-        <SingleCard number="5" />
-        <SingleCard number="6" />
-        <SingleCard number="7" />
-        <SingleCard number="8" />
+        <SingleCard
+          image={Book1984}
+          category="detective, romance, fiction, science-fiction, comedy, horror"
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={CrimeAndPunishment}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={Book1984}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={CrimeAndPunishment}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={Book1984}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={Book1984}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={CrimeAndPunishment}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
+        <SingleCard
+          image={Book1984}
+          title="1984"
+          description="1984 is a dystopian social science fiction novel by
+          English novelist George Orwell."
+          price="20.50"
+          author="George orwell"
+        />
       </CarouselSlider>
     </Template>
   );
