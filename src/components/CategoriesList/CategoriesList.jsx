@@ -16,16 +16,16 @@ const CategoriesList = ({ toggleDarkMode }) => {
   return (
     <Template background={toggleDarkMode ? "#161617" : "transparent"}>
       <ul>
-        <StyledNavListLink to="/">New</StyledNavListLink>
-        <StyledNavListLink to="/">Bestsellers</StyledNavListLink>
-        <StyledNavListLink to="/">Fiction</StyledNavListLink>
+        <StyledNavListLink to="/newbooks">New</StyledNavListLink>
+        <StyledNavListLink to="/bestsellers">Bestsellers</StyledNavListLink>
+        <StyledNavListLink to="/fiction">Fiction</StyledNavListLink>
         <StyledNavListLink to="/">Children's</StyledNavListLink>
-        <StyledNavListLink to="/">History</StyledNavListLink>
-        <StyledNavListLink to="/">Philosophy</StyledNavListLink>
-        <StyledNavListLink to="/">Romance</StyledNavListLink>
-        <StyledNavListLink to="/">Adventure</StyledNavListLink>
-        <StyledNavListLink to="/">Horror</StyledNavListLink>
-        <StyledNavListLink to="/" style={{ color: "#CB0E4E" }}>
+        <StyledNavListLink to="/history">History</StyledNavListLink>
+        <StyledNavListLink to="/philosophy">Philosophy</StyledNavListLink>
+        <StyledNavListLink to="/romance">Romance</StyledNavListLink>
+        <StyledNavListLink to="/adventure">Adventure</StyledNavListLink>
+        <StyledNavListLink to="/horror">Horror</StyledNavListLink>
+        <StyledNavListLink to="/sale" style={{ color: "#CB0E4E" }}>
           Sale
         </StyledNavListLink>
       </ul>
