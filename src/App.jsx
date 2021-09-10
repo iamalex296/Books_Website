@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 
 import "./App.css";
@@ -19,7 +19,15 @@ import Sales from "./pages/Sales/Sales";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  const [toggleDarkMode, setToggleDarkMode] = useState(true);
+  const darkModeLocalStorage = () => {
+    return JSON.parse(localStorage.getItem("dakrMode"));
+  };
+
+  const [toggleDarkMode, setToggleDarkMode] = useState(darkModeLocalStorage());
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(toggleDarkMode));
+  }, [toggleDarkMode]);
 
   return (
     <div className={toggleDarkMode ? "DarkMode" : "LightMode"}>

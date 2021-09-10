@@ -53,10 +53,10 @@ const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
     <StyledHeader>
       <Template>
         <StyledNavItems>
-          <StyledLink to="/">
-            <StyledListLink>Events</StyledListLink>
+          <StyledLink>
+            <StyledListLink to="/">Events</StyledListLink>
           </StyledLink>
-          <StyledLink to="/">
+          <StyledLink>
             <StyledListLink to="/">Blog</StyledListLink>
           </StyledLink>
           <StyledListLink to="/">Gift Card</StyledListLink>
