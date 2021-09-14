@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchBooks } from "../../redux/books/booksActions";
 
 import SingleCard from "./SingleCard/SingleCard";
 import CarouselSlider from "../../UI/Carousel/CarouselSlider";
 import Template from "../../UI/Template/Template";
-
-import Book1984 from "../../assets/z13bnbq2dwg51.png";
-import CrimeAndPunishment from "../../assets/crime_and_punishment_raskolnikov_maria_ivanova_mariaivart.jpg";
 
 import styled from "styled-components";
 
@@ -32,7 +31,15 @@ const StyledHr = styled.hr`
   }
 `;
 
-const Cards = ({ name }) => {
+const Cards = ({ name, category }) => {
+  const booksData = useSelector((state) => state.booksStore.books[category]);
+  console.log("booksDataaa", booksData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks(category));
+  }, [dispatch, category]);
+
   return (
     <Template>
       <span>
@@ -40,71 +47,17 @@ const Cards = ({ name }) => {
         <StyledHr />
       </span>
       <CarouselSlider itemsToShow={4} itemsToScroll={4}>
-        <SingleCard
-          image={Book1984}
-          category="detective, romance, fiction, science-fiction, comedy, horror"
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={CrimeAndPunishment}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={Book1984}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={CrimeAndPunishment}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={Book1984}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={Book1984}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={CrimeAndPunishment}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
-        <SingleCard
-          image={Book1984}
-          title="1984"
-          description="1984 is a dystopian social science fiction novel by
-          English novelist George Orwell."
-          price="20.50"
-          author="George orwell"
-        />
+        {booksData &&
+          booksData.map((singleBookData) => (
+            <SingleCard
+              key={singleBookData.primary_isbn10}
+              image={singleBookData.book_image}
+              title={singleBookData.title}
+              description={singleBookData.description}
+              price={singleBookData.price}
+              author={singleBookData.author}
+            />
+          ))}
       </CarouselSlider>
     </Template>
   );

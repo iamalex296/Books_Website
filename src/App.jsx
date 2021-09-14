@@ -19,14 +19,19 @@ import Sales from "./pages/Sales/Sales";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
-  const darkModeLocalStorage = () => {
-    return JSON.parse(localStorage.getItem("dakrMode"));
-  };
-
-  const [toggleDarkMode, setToggleDarkMode] = useState(darkModeLocalStorage());
+  const [toggleDarkMode, setToggleDarkMode] = useState(
+    JSON.parse(localStorage.getItem("darkMode"))
+  );
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(toggleDarkMode));
+    // console.log("a", toggleDarkMode);
+  }, [toggleDarkMode]);
+
+  useEffect(() => {
+    // console.log("b", toggleDarkMode);
+    setToggleDarkMode(JSON.parse(localStorage.getItem("darkMode")));
+    // console.log(`c`, toggleDarkMode);
   }, [toggleDarkMode]);
 
   return (

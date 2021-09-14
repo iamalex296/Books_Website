@@ -5,7 +5,7 @@ import {
 } from "./booksActionTypes";
 
 const initialState = {
-  books: [],
+  books: {},
   loading: false,
   error: "",
 };
@@ -21,7 +21,10 @@ const booksReducer = (state = initialState, action) => {
     case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
-        books: action.payload,
+        books: {
+          ...state.books,
+          [action.payload.category]: action.payload.books,
+        },
         loading: false,
       };
 

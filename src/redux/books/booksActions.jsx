@@ -12,10 +12,13 @@ export const fetchBooksRequest = () => {
   };
 };
 
-export const fetchBooksSuccess = (books) => {
+export const fetchBooksSuccess = ({ books, category }) => {
   return {
     type: FETCH_BOOKS_SUCCESS,
-    payload: books,
+    payload: {
+      books,
+      category,
+    },
   };
 };
 
@@ -35,8 +38,9 @@ export const fetchBooks = (category) => {
       )
       .then((response) => {
         const books = response.data.results.books;
-        dispatch(fetchBooksSuccess(books));
-        console.log("books", books);
+        dispatch(fetchBooksSuccess({ books, category }));
+        // console.log("books", books);
+        // console.log("category", category);
       })
       .catch((error) => {
         dispatch(fetchBooksFailure(error.message));
