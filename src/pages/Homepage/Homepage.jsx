@@ -10,8 +10,8 @@ const Homepage = () => {
   return (
     <div>
       <BannersSlider />
-      <Cards name="Fiction" category="hardcover-fiction" />
-      <Cards name="Business" category="business-books" />
+      <Cards name="Fiction" category="hardcover-fiction" withCarousel={true} />
+      <Cards name="Business" category="business-books" withCarousel={true} />
       <Banner bannerImage={BannerImage} />
       <Cards name="Animals" category="animals" />
     </div>

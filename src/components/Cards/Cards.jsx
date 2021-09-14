@@ -31,7 +31,14 @@ const StyledHr = styled.hr`
   }
 `;
 
-const Cards = ({ name, category }) => {
+const StyledContentDiv = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 5px 10px;
+  padding: 0px;
+`;
+
+const Cards = ({ name, category, withCarousel }) => {
   const booksData = useSelector((state) => state.booksStore.books[category]);
   console.log("booksDataaa", booksData);
   const dispatch = useDispatch();
@@ -46,19 +53,35 @@ const Cards = ({ name, category }) => {
         <StyledHeader>{name}</StyledHeader>
         <StyledHr />
       </span>
-      <CarouselSlider itemsToShow={4} itemsToScroll={4}>
-        {booksData &&
-          booksData.map((singleBookData) => (
-            <SingleCard
-              key={singleBookData.primary_isbn10}
-              image={singleBookData.book_image}
-              title={singleBookData.title}
-              description={singleBookData.description}
-              price={singleBookData.price}
-              author={singleBookData.author}
-            />
-          ))}
-      </CarouselSlider>
+      {withCarousel ? (
+        <CarouselSlider itemsToShow={4} itemsToScroll={4}>
+          {booksData &&
+            booksData.map((singleBookData) => (
+              <SingleCard
+                key={singleBookData.primary_isbn10}
+                image={singleBookData.book_image}
+                title={singleBookData.title}
+                description={singleBookData.description}
+                price={singleBookData.price}
+                author={singleBookData.author}
+              />
+            ))}
+        </CarouselSlider>
+      ) : (
+        <StyledContentDiv>
+          {booksData &&
+            booksData.map((singleBookData) => (
+              <SingleCard
+                key={singleBookData.primary_isbn10}
+                image={singleBookData.book_image}
+                title={singleBookData.title}
+                description={singleBookData.description}
+                price={singleBookData.price}
+                author={singleBookData.author}
+              />
+            ))}
+        </StyledContentDiv>
+      )}
     </Template>
   );
 };

@@ -7,14 +7,12 @@ import Header from "./components/Header/Header";
 import SearchSection from "./components/SearchSection/SearchSection";
 import CategoriesList from "./components/CategoriesList/CategoriesList";
 import Homepage from "./pages/Homepage/Homepage";
-import Adventure from "./pages/Adventure/Adventure";
-import BestSellers from "./pages/BestSellers/BestSellers";
+import Business from "./pages/Business/Business";
+import Education from "./pages/Education/Education";
 import Fiction from "./pages/Fiction/Fiction";
-import History from "./pages/History/History";
-import Horror from "./pages/Horror/Horror";
-import NewBooks from "./pages/NewBooks/NewBooks";
-import Philosophy from "./pages/Philosophy/Philosophy";
-import Romance from "./pages/Romance/Romance";
+import Culture from "./pages/Culture/Culture";
+import Religion from "./pages/Religion/Religion";
+import Sports from "./pages/Sports/Sports";
 import Sales from "./pages/Sales/Sales";
 import Footer from "./components/Footer/Footer";
 
@@ -53,36 +51,28 @@ const App = () => {
           <Homepage />
         </Route>
 
-        <Route path="/adventure">
-          <Adventure />
+        <Route path="/business">
+          <Business />
         </Route>
 
-        <Route path="/bestsellers">
-          <BestSellers />
+        <Route path="/education">
+          <Education />
         </Route>
 
         <Route path="/fiction">
           <Fiction />
         </Route>
 
-        <Route path="/history">
-          <History />
+        <Route path="/culture">
+          <Culture />
         </Route>
 
-        <Route path="/horror">
-          <Horror />
+        <Route path="/religion">
+          <Religion />
         </Route>
 
-        <Route path="/newbooks">
-          <NewBooks />
-        </Route>
-
-        <Route path="/philosophy">
-          <Philosophy />
-        </Route>
-
-        <Route path="/romance">
-          <Romance />
+        <Route path="/sports">
+          <Sports />
         </Route>
 
         <Route path="/sale">
