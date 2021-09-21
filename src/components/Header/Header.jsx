@@ -1,5 +1,8 @@
 import React from "react";
 
+import { IconButton, Menu, MenuItem } from "@material-ui/core";
+import { AccountCircle } from "@material-ui/icons";
+
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -26,14 +29,14 @@ const StyledNavItems = styled.ul`
   padding: 0px;
 `;
 
-const StyledRegisterLink = styled(Link)`
-  text-transform: uppercase;
-  text-decoration: none;
-  list-style: none;
-  padding: 0px;
-  font-size: 12px;
-  cursor: pointer;
-`;
+// const StyledRegisterLink = styled(Link)`
+//   text-transform: uppercase;
+//   text-decoration: none;
+//   list-style: none;
+//   padding: 0px;
+//   font-size: 12px;
+//   cursor: pointer;
+// `;
 
 const StyledLoginMenu = styled.div`
   display: flex;
@@ -48,7 +51,25 @@ const StyledLink = styled(Link)`
   color: #dfdfdf;
 `;
 
-const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
+const Header = ({ toggleDarkMode, setToggleDarkMode, setUserState }) => {
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+
+  const handleClose = () => {
+    localStorage.removeItem("user");
+    setUserState();
+    setAnchorEl(null);
+  };
+
+  const closeProfilePopup = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
   return (
     <StyledHeader>
       <Template>
@@ -72,6 +93,38 @@ const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
             setToggleDarkMode={setToggleDarkMode}
           />
 
+          {auth && (
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle color="primary" />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                onClose={closeProfilePopup}
+              >
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
+            </div>
+          )}
+
+          {/* 
           <Button
             variant="outlined"
             color="secondary"
@@ -83,7 +136,7 @@ const Header = ({ toggleDarkMode, setToggleDarkMode }) => {
 
           <StyledRegisterLink to="/register">
             <Button>Register</Button>
-          </StyledRegisterLink>
+          </StyledRegisterLink> */}
         </StyledLoginMenu>
       </Template>
     </StyledHeader>

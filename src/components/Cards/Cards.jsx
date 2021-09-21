@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
 import { fetchBooks } from "../../redux/books/booksActions";
 
 import SingleCard from "./SingleCard/SingleCard";
@@ -56,29 +58,34 @@ const Cards = ({ name, category, withCarousel }) => {
       {withCarousel ? (
         <CarouselSlider itemsToShow={4} itemsToScroll={4}>
           {booksData &&
-            booksData.map((singleBookData) => (
-              <SingleCard
-                key={singleBookData.primary_isbn10}
-                image={singleBookData.book_image}
-                title={singleBookData.title}
-                description={singleBookData.description}
-                price={singleBookData.price}
-                author={singleBookData.author}
-              />
+            booksData.map((singleBookData, index) => (
+              <Link to={`/books/${category}/${index}`}>
+                {/* {console.log("singlebookIndex", index)} */}
+                <SingleCard
+                  key={singleBookData.primary_isbn10}
+                  image={singleBookData.book_image}
+                  title={singleBookData.title}
+                  description={singleBookData.description}
+                  price={singleBookData.price}
+                  author={singleBookData.author}
+                />
+              </Link>
             ))}
         </CarouselSlider>
       ) : (
         <StyledContentDiv>
           {booksData &&
             booksData.map((singleBookData) => (
-              <SingleCard
-                key={singleBookData.primary_isbn10}
-                image={singleBookData.book_image}
-                title={singleBookData.title}
-                description={singleBookData.description}
-                price={singleBookData.price}
-                author={singleBookData.author}
-              />
+              <Link to="/bookdetails">
+                <SingleCard
+                  key={singleBookData.primary_isbn10}
+                  image={singleBookData.book_image}
+                  title={singleBookData.title}
+                  description={singleBookData.description}
+                  price={singleBookData.price}
+                  author={singleBookData.author}
+                />
+              </Link>
             ))}
         </StyledContentDiv>
       )}

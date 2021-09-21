@@ -30,6 +30,7 @@ export const fetchBooksFailure = (error) => {
 };
 
 export const fetchBooks = (category) => {
+  // console.log("category", category);
   return function (dispatch) {
     dispatch(fetchBooksRequest());
     axios

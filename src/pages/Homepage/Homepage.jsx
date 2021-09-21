@@ -13,7 +13,7 @@ const Homepage = () => {
       <Cards name="Fiction" category="hardcover-fiction" withCarousel={true} />
       <Cards name="Business" category="business-books" withCarousel={true} />
       <Banner bannerImage={BannerImage} />
-      <Cards name="Animals" category="animals" />
+      <Cards name="Animals" category="animals" withCarousel={true} />
     </div>
   );
 };
