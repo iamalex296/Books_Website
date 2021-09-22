@@ -3,23 +3,34 @@ import Box from "@mui/material/Box";
 import Button from "../Button/Button";
 import Modal from "@mui/material/Modal";
 
+import styled from "styled-components";
+
 const style = {
   position: "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
-  maxHeight: 500,
-  overflow: "auto",
-  bgcolor: "background.paper",
+  width: 500,
+  height: 450,
+  bgcolor: "transparent",
   padding: "0px",
   margin: "0px",
-  border: "1px solid gray",
   borderRadius: "10px",
   outline: "none",
-  boxShadow: 24,
+  // boxShadow: 24,
   p: 0,
 };
+
+const StyledModalBox = styled(Box)`
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+`;
 
 const ModalBasic = ({
   modalButtonName,
@@ -53,7 +64,7 @@ const ModalBasic = ({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>{children}</Box>
+        <StyledModalBox sx={style}>{children}</StyledModalBox>
       </Modal>
     </div>
   );
