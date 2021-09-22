@@ -15,7 +15,7 @@ import {
 } from "@material-ui/core";
 import { LockRounded } from "@material-ui/icons";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import fire from "../helpers/db";
+import fire from "../../helpers/db";
 import { ToastContainer, toast } from "react-toastify";
 import { ScaleLoader } from "react-spinners";
 
@@ -162,18 +162,18 @@ const Login = (props) => {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(1),
+    // margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    // marginTop: theme.spacing(1),
   },
   submit: {
     background:
@@ -183,10 +183,8 @@ const useStyles = makeStyles((theme) => ({
   },
 
   card: {
-    marginTop: "60px",
-    paddingLeft: "20px",
-    paddingRight: "20px",
-    paddingBottom: "20px",
+    margin: "0px",
+    padding: "0px 20px",
   },
   pointer: {
     cursor: "pointer",

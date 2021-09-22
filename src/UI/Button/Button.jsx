@@ -12,11 +12,11 @@ const SingleButton = ({
   size,
   startIcon,
   endIcon,
-  style,
+  buttonStyle,
 }) => {
   return (
     <Button
-      style={style}
+      style={buttonStyle}
       variant={variant || "contained"}
       color={color || "primary"}
       disabled={disabled}

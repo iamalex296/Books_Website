@@ -16,8 +16,6 @@ import Sports from "./pages/Sports/Sports";
 import Sales from "./pages/Sales/Sales";
 import BookDetails from "./pages/BookDetails/BookDetails";
 import Footer from "./components/Footer/Footer";
-import Login from "./authentication/Login";
-import SignUp from "./authentication/SignUp";
 
 const App = () => {
   const [toggleDarkMode, setToggleDarkMode] = useState(
@@ -54,79 +52,68 @@ const App = () => {
   }, [toggleDarkMode]);
 
   return (
-    <>
-      {user !== null ? (
-        <div className={toggleDarkMode ? "DarkMode" : "LightMode"}>
-          <Header
-            toggleDarkMode={toggleDarkMode}
-            setToggleDarkMode={setToggleDarkMode}
-            setUserState={() => setUser(null)}
-          />
+    <div className={toggleDarkMode ? "DarkMode" : "LightMode"}>
+      <Header
+        toggleDarkMode={toggleDarkMode}
+        setToggleDarkMode={setToggleDarkMode}
+        setUserState={() => setUser(null)}
+        user={user}
+        toggleForm={toggleForm}
+        loggedIn={(user) => setUser(user)}
+        toggle={() => formMode()}
+      />
 
-          <SearchSection />
-          <CategoriesList toggleDarkMode={toggleDarkMode} />
+      <SearchSection />
+      <CategoriesList toggleDarkMode={toggleDarkMode} />
 
-          <Switch>
-            <Route path="/" exact>
-              <Redirect to="/home" />
-            </Route>
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
 
-            <Route path="/home" exact>
-              <Homepage />
-            </Route>
+        <Route path="/home" exact>
+          <Homepage />
+        </Route>
 
-            <Route path={`/books/:category/:bookId`} exact>
-              <BookDetails />
-            </Route>
+        <Route path={`/books/:category/:bookId`} exact>
+          <BookDetails />
+        </Route>
 
-            <Route path="/business">
-              <Business />
-            </Route>
+        <Route path="/business">
+          <Business />
+        </Route>
 
-            <Route path="/education">
-              <Education />
-            </Route>
+        <Route path="/education">
+          <Education />
+        </Route>
 
-            <Route path="/fiction">
-              <Fiction />
-            </Route>
+        <Route path="/fiction">
+          <Fiction />
+        </Route>
 
-            <Route path="/culture">
-              <Culture />
-            </Route>
+        <Route path="/culture">
+          <Culture />
+        </Route>
 
-            <Route path="/religion">
-              <Religion />
-            </Route>
+        <Route path="/religion">
+          <Religion />
+        </Route>
 
-            <Route path="/sports">
-              <Sports />
-            </Route>
+        <Route path="/sports">
+          <Sports />
+        </Route>
 
-            <Route path="/sale">
-              <Sales />
-            </Route>
+        <Route path="/sale">
+          <Sales />
+        </Route>
 
-            <Route path="*">
-              <Redirect to="/home" />
-            </Route>
-          </Switch>
+        <Route path="*">
+          <Redirect to="/home" />
+        </Route>
+      </Switch>
 
-          <Footer />
-        </div>
-      ) : (
-        <>
-          {toggleForm ? (
-            <Login
-              loggedIn={(user) => setUser(user)}
-              toggle={() => formMode()}
-            />
-          ) : (
-            <SignUp toggle={() => formMode()} />
-          )}
-        </>
-      )}
-    </>
+      <Footer />
+    </div>
   );
 };
 

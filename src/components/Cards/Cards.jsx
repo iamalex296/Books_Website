@@ -59,7 +59,10 @@ const Cards = ({ name, category, withCarousel }) => {
         <CarouselSlider itemsToShow={4} itemsToScroll={4}>
           {booksData &&
             booksData.map((singleBookData, index) => (
-              <Link to={`/books/${category}/${index}`}>
+              <Link
+                to={`/books/${category}/${index}`}
+                key={singleBookData.primary_isbn10}
+              >
                 {/* {console.log("singlebookIndex", index)} */}
                 <SingleCard
                   key={singleBookData.primary_isbn10}

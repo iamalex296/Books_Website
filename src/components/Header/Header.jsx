@@ -11,6 +11,10 @@ import Template from "../../UI/Template/Template";
 import SwitchToggler from "../../UI/SwitchToggler/SwitchToggler";
 import { StyledListLink } from "../../UI/Links/StyledLinks";
 
+import Login from "../../pages/authentication/Login";
+import SignUp from "../../pages/authentication/SignUp";
+import ModalBasic from "../../UI/ModalBasic/ModalBasic";
+
 const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
@@ -29,15 +33,6 @@ const StyledNavItems = styled.ul`
   padding: 0px;
 `;
 
-// const StyledRegisterLink = styled(Link)`
-//   text-transform: uppercase;
-//   text-decoration: none;
-//   list-style: none;
-//   padding: 0px;
-//   font-size: 12px;
-//   cursor: pointer;
-// `;
-
 const StyledLoginMenu = styled.div`
   display: flex;
   align-items: center;
@@ -51,9 +46,18 @@ const StyledLink = styled(Link)`
   color: #dfdfdf;
 `;
 
-const Header = ({ toggleDarkMode, setToggleDarkMode, setUserState }) => {
+const Header = ({
+  toggleDarkMode,
+  setToggleDarkMode,
+  setUserState,
+  user,
+  toggleForm,
+  loggedIn,
+  toggle,
+}) => {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
   const open = Boolean(anchorEl);
 
   const handleClose = () => {
@@ -93,7 +97,7 @@ const Header = ({ toggleDarkMode, setToggleDarkMode, setUserState }) => {
             setToggleDarkMode={setToggleDarkMode}
           />
 
-          {auth && (
+          {auth && user !== null ? (
             <div>
               <IconButton
                 aria-label="account of current user"
@@ -122,21 +126,28 @@ const Header = ({ toggleDarkMode, setToggleDarkMode, setUserState }) => {
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </div>
+          ) : (
+            <>
+              <ModalBasic
+                modalButtonName="Log In"
+                variant="outlined"
+                color="secondary"
+                size="medium"
+                buttonStyle={{ marginRight: "10px" }}
+                buttonNameColor="rgb(203, 14, 78)"
+              >
+                <Login loggedIn={loggedIn} toggle={toggle} />
+              </ModalBasic>
+
+              <ModalBasic
+                modalButtonName="REGISTER"
+                color="primary"
+                size="medium"
+              >
+                <SignUp toggle={toggle} />
+              </ModalBasic>
+            </>
           )}
-
-          {/* 
-          <Button
-            variant="outlined"
-            color="secondary"
-            size="large"
-            style={{ marginRight: "10px" }}
-          >
-            <StyledLink to="/login">Log In</StyledLink>
-          </Button>
-
-          <StyledRegisterLink to="/register">
-            <Button>Register</Button>
-          </StyledRegisterLink> */}
         </StyledLoginMenu>
       </Template>
     </StyledHeader>
